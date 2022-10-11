@@ -1,128 +1,26 @@
 
-resource"azurerm_app_service""App_Service_1" {
+resource"aws_lambda_function""Lambda6979710000" {
 
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-name="cloudgeneweblinux" 
-location="East US" 
-app_service_plan_id=azurerm_service_plan.service_plan_1.id 
-logs {
+s3_key="cloudtest1/hello.zip" 
+s3_bucket="cloudgentests3" 
+runtime="python3.9" 
+role="arn:aws:iam::673536620341:role/dojolambdarole" 
+handler="index.handler" 
+function_name="Testcloudsitwalk123" 
+architectures=["x86_64" ]
+}
+ 
+resource"aws_s3_bucket""S3_Bucket31710000" {
 
-	} 
-tags= {
+bucket="codegenwalk123" 
+}
+ 
+resource"aws_api_gateway_rest_api""API_Gateway_REST_API7696110000" {
 
-env = "Development" 	
+name="Cloudgensit" 
+description="Test" 
+endpoint_configuration {
+
+types=["REGIONAL" ]
 } 
-}
- 
-resource"azurerm_service_plan""service_plan_1" {
-
-sku_name="S1" 
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-os_type="Linux" 
-name="cloudgenplan1234" 
-location="East US" 
-}
- 
-resource"azurerm_function_app""function_application_1" {
-
-storage_account_name=azurerm_storage_account.account_1.name 
-storage_account_access_key=azurerm_storage_account.account_1.primary_access_key 
-
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-name="functionapplinux1" 
-location="East US" 
-app_service_plan_id=azurerm_service_plan.service_plan_2.id 
-
-
-}
- 
-resource"azurerm_function_app""Function_application2051010000" {
-
-storage_account_name=azurerm_storage_account.account_2.name 
-storage_account_access_key=azurerm_storage_account.account_2.primary_access_key 
-
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-name="functionapplinux2" 
-location="East US" 
-app_service_plan_id=azurerm_service_plan.service_plan_3.id 
-
-
-}
- 
-resource"azurerm_storage_account""account_2" {
-
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-name="cloudgenstgaccountsecond" 
-location="East US" 
-account_tier="Standard" 
-account_replication_type="LRS" 
-account_kind="Storage" 
-access_tier="Hot" 
-tags= {
-
-env ="Dev" 
-} 
-}
- 
-resource"azurerm_storage_account""account_1" {
-
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-name="cloudgenstgaccount1" 
-location="East US" 
-account_tier="Standard" 
-account_replication_type="LRS" 
-account_kind="Storage" 
-access_tier="Hot" 
-tags= {
-
-env ="Dev" 
-} 
-}
- 
-resource"azurerm_sql_server""sql_server" {
-
-version="12.0" 
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-name="cloudgenserversql" 
-location="East US" 
-administrator_login_password="avasoft@12345" 
-administrator_login="avasoftadmin" 
-tags= {
-
-env ="Dev" 	
-} 
-}
- 
-resource"azurerm_service_plan""service_plan_2" {
-
-sku_name="S1" 
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-os_type="Linux" 
-name="serviceplanfunction15" 
-location="East US" 
-tags= {
-
-env ="Dev" 	
-} 
-}
- 
-resource"azurerm_service_plan""service_plan_3" {
-
-sku_name="S1" 
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-os_type="Linux" 
-name="cloudgenfunction2" 
-location="East US" 
-tags= {
-
-env ="Dev" 	
-} 
-}
- 
-resource"azurerm_sql_database""SQL_database" {
-
-server_name=azurerm_sql_server.sql_server.name 
-resource_group_name="AVA-EUS-CLOUDGEN-RG" 
-name="databasecloudgen" 
-location="East US" 
 }
